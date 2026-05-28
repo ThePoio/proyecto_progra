@@ -28,6 +28,7 @@ def procesar_usuario(torniquetes, indice_usuario, usuario): #Selecciona un torni
 def main():
     cantidad_usuarios = 200
     cantidad_torniquetes = 4 #En general, es el numero de torniquetes que hay por estacion, pero se puede ajustar
+    usuarios = generar_usuarios(cantidad_usuarios)
     torniquetes = [Torniquete(i + 1, time.time()) for i in range(cantidad_torniquetes)] #Crea los torniquetes con identificadores y hora de registro
 
     with ThreadPoolExecutor(max_workers=cantidad_torniquetes) as executor: #Utiliza un ThreadPoolExecutor para procesar a los usuarios de manera concurrente, asignando cada usuario a un torniquete basado en su indice
